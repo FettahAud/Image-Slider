@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+}
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body
+{
+    height: 100vh;
+    // width: 100vw;
+    @include flex-center();
+}
+.cont
+{
+    position: relative;
+    width: 55.2vw;
+    height: 76vh;
+    display: flex;
+    // overflow: hidden;
+    .count
+    {
+        min-width: 100px;
+        height: 40px;
+        z-index: 5;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        @include flex-center();
+        justify-content: space-evenly;
+        .cir
+        {
+            width: 12px;
+            height: 12px;
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, .4);
+            border-radius: 50%;
+            &.active
+            {
+                border-color: rgba(255, 255, 255, .8);
+            }
+        }
+    }
+    .left,
+    .right
+    {
+        width:45px;
+        height: 45px;
+        position: absolute;
+        font-size: 2rem;
+        @include flex-center();
+        top: 50%;
+        transform: translateY(-50%);
+        color: #f3ebff;
+        background-color: rgba(255, 255, 255, .2);
+        backdrop-filter: blur(2px);
+        cursor: pointer;
+        transition: all .1s;
+        user-select: none;
+        z-index: 100;
+        &:hover
+        {
+            background-color: rgba(255, 255, 255, .4);
+        }
+    }
+    .img-cont
+    {
+        width: 0%;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        transition: all .2s;
+        &.active
+        {
+            width: 100%;
+            z-index: 4;
+        }
+    }
+    .left {left: 0;}
+    .right {right: 0;}
+}
